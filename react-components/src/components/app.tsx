@@ -1,9 +1,9 @@
 import React from 'react';
+import { SearchBar } from './search-bar';
 
 const App: React.FC = () => (
   <>
-    <h1>Hello from react!</h1>
-    <h2>Search-bar</h2>
+    <SearchBar />
     <h3>Cards</h3>
   </>
 );
