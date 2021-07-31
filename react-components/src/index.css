@@ -70,5 +70,31 @@ body {
   align-items: center;
 
   border-radius: 5px;
-  background-color: royalblue;
+  border: 1px solid olive;
+  background-color: olive;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card_img {
+  width: 200px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card_title {
+  margin-top: 10px;
+  font-size: x-large;
+}
+.card_price {
+  margin-top: 10px;
+  font-size: large;
+}
+.card_description {
+  margin-top: 15px;
+  font-size: 500;
+
+  color: #fff;
 }
