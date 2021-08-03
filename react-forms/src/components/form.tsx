@@ -15,8 +15,18 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
     country: 'Belarus',
     notifications: false,
   });
+  const [valid, setValid] = useState(false);
 
-  const formHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
+  const validation = (): boolean => {
+    const values = Object.values(form);
+    let res = true;
+    values.forEach((key) => {
+      if (key === '') res = false;
+    });
+    return res;
+  };
+
+  const formHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
     if (event.target.name === 'notifications') {
       setForm({
         ...form,
@@ -30,16 +40,35 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
     });
   };
 
-  const formHandlerSelect: ChangeEventHandler<HTMLSelectElement> = (event) => {
+  const formHandlerSelect: ChangeEventHandler<HTMLSelectElement> = (event): void => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
 
+  const clearForm = (): void => {
+    setValid(false);
+    setForm({
+      name: '',
+      surname: '',
+      birthday: '',
+      country: 'Belarus',
+      notifications: false,
+    });
+  };
+
+  const showFinish = () : void => alert('Form has been submit!');
+
   const submitHandler: FormEventHandler = (event): void => {
     event.preventDefault();
-    setUsers((state: User[]) => [...state, form]);
+    if (validation()) {
+      setUsers((state: User[]) => [...state, form]);
+      clearForm();
+      showFinish();
+    } else {
+      setValid(true);
+    }
   };
 
   return (
@@ -97,6 +126,7 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
         <input type="checkbox" name="notifications" checked={form.notifications} onChange={formHandler} />
       </label>
 
+      <p className={valid ? 'invalid' : 'valid'}>*Fill in all the fields</p>
       <input className="form_submit" type="submit" value="Submit" />
     </form>
   );
