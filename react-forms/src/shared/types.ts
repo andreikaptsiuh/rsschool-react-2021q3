@@ -3,5 +3,6 @@ export type User = {
   surname: string;
   birthday: string;
   country: string;
+  sex: boolean;
   notifications: boolean;
 }

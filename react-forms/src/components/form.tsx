@@ -12,7 +12,8 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
     name: '',
     surname: '',
     birthday: '',
-    country: 'Belarus',
+    country: '',
+    sex: false,
     notifications: false,
   });
   const [valid, setValid] = useState(false);
@@ -31,6 +32,13 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
       setForm({
         ...form,
         [event.target.name]: !form.notifications,
+      });
+      return;
+    }
+    if (event.target.name === 'sex') {
+      setForm({
+        ...form,
+        [event.target.name]: !form.sex,
       });
       return;
     }
@@ -53,7 +61,8 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
       name: '',
       surname: '',
       birthday: '',
-      country: 'Belarus',
+      country: '',
+      sex: false,
       notifications: false,
     });
   };
@@ -111,9 +120,11 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
         <select
           className="form_input"
           name="country"
+          required
           value={form.country}
           onChange={formHandlerSelect}
         >
+          <option disabled>Select your country</option>
           <option value="Belarus">Belarus</option>
           <option value="Ukraine">Ukraine</option>
           <option value="Germany">Germany</option>
@@ -121,12 +132,32 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
         </select>
       </label>
 
+      <div className="switch_container">
+        Male
+        <label className="switch">
+          <input
+            type="checkbox"
+            name="sex"
+            checked={form.sex}
+            onChange={formHandler}
+          />
+          <span className="slider" />
+        </label>
+        Female
+      </div>
+
       <label className="form_label__checkbox" htmlFor="notifications">
         I want to receive notifications
-        <input type="checkbox" name="notifications" checked={form.notifications} onChange={formHandler} />
+        <input
+          type="checkbox"
+          name="notifications"
+          checked={form.notifications}
+          onChange={formHandler}
+        />
       </label>
 
       <p className={valid ? 'invalid' : 'valid'}>*Fill in all the fields</p>
+
       <input className="form_submit" type="submit" value="Submit" />
     </form>
   );

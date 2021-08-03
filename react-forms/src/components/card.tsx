@@ -29,6 +29,11 @@ export const Card: React.FC<ICardProps> = ({ user }: ICardProps) => (
         {user.country}
       </li>
       <li>
+        Sex:
+        {' '}
+        {user.sex ? 'Female' : 'Male'}
+      </li>
+      <li>
         Notifications:
         {' '}
         {user.notifications ? 'yes' : 'no'}
