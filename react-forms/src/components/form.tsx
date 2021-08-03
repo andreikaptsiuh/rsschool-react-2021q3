@@ -120,7 +120,6 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
         <select
           className="form_input"
           name="country"
-          required
           value={form.country}
           onChange={formHandlerSelect}
         >
