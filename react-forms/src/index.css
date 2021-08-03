@@ -11,16 +11,55 @@ body {
 }
 
 #root {
-  width: 1100px;
+  width: 90%;
+  margin-top: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: space-between;
 
-  background-color: darkgray;
+  background-color: rgb(224, 221, 221);
+  border-radius: 5px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 420px;
+  justify-content: space-between;
+
+  margin-left: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+}
+.form_label {
+  display: flex;
+  flex-direction: column;
+}
+.form_label__checkbox {
+  display: flex;
+}
+.form_label__checkbox > input {
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.form_input {
+  width: 240px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.form_submit {
+  height: 40px;
+  width: 200px;
+  border: none;
+  outline: none;
+
+  border-radius: 5px;
+  background: rgb(158, 158, 161);
 }
 
 .cards_board {
