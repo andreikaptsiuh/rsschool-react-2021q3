@@ -18,7 +18,57 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   background-color: rgb(224, 221, 221);
   border-radius: 5px;
+}
+
+.search-bar__container {
+  display: flex;
+  align-items: center;
+
+  width: 400px;
+  height: 50px;
+
+  border: 2px solid olive;
+  border-radius: 30px;
+}
+
+.search-bar__icon {
+  background-image: url(../public/search.svg);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  width: 280px;
+  height: 30px;
+  font-size: medium;
+
+  background: none;
+
+  color: olive;
+}
+
+.form_submit {
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 80px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.form_submit:hover {
+  cursor: pointer;
 }

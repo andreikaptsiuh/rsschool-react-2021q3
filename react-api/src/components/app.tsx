@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SearchPanel } from './search-panel';
+import { SearchBar } from './search-bar';
 
 const App: React.FC = () => {
   const [search, setSearch] = useState<string>('');
@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <SearchPanel setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} />
     </>
   );
 };

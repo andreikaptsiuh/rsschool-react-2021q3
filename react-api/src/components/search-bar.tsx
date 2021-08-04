@@ -2,11 +2,11 @@ import React, {
   ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState,
 } from 'react';
 
-interface ISearchPanelProps {
+interface ISearchBarProps {
   setSearch: Dispatch<SetStateAction<string>>;
 }
 
-export const SearchPanel: React.FC<ISearchPanelProps> = ({ setSearch }: ISearchPanelProps) => {
+export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarProps) => {
   const [form, setForm] = useState('');
 
   const searchHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
@@ -16,17 +16,20 @@ export const SearchPanel: React.FC<ISearchPanelProps> = ({ setSearch }: ISearchP
   const submitHandler: FormEventHandler = (event): void => {
     event.preventDefault();
     setSearch(form);
+    setForm('');
   };
 
   return (
-    <form className="form" onSubmit={submitHandler}>
+    <form className="search-bar__container" onSubmit={submitHandler}>
+      <div className="search-bar__icon" />
       <input
+        className="search-bar"
         type="text"
         value={form}
         onChange={searchHandler}
       />
 
-      <input className="form_submit" type="submit" value="Submit" />
+      <input className="form_submit" type="submit" value="Search" />
     </form>
   );
 };
