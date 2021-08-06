@@ -13,3 +13,8 @@ export interface IResultBoardProps {
 export interface IResultItemProps {
   card: ICard;
 }
+
+export interface ISearch {
+  search: string,
+  sort: string,
+}
