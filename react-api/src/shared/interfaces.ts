@@ -1,6 +1,9 @@
 export interface ICard {
   id: number;
-  name: string;
+  title: string;
+  author: string;
+  description: string;
+  url: string;
 }
 
 export interface IResultBoardProps {
