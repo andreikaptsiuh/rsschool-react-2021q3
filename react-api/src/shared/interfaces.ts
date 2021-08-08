@@ -17,4 +17,5 @@ export interface IResultItemProps {
 export interface ISearch {
   search: string,
   sort: string,
+  size: number,
 }

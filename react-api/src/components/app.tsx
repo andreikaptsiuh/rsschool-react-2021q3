@@ -5,15 +5,15 @@ import { ResultBoard } from './result-board/result-board';
 import { ISearch } from '../shared/interfaces';
 
 const App: React.FC = () => {
-  const [search, setSearch] = useState<ISearch>({ search: '', sort: '' });
+  const [search, setSearch] = useState<ISearch>({ search: '', sort: '', size: 5 });
   const [cards, setCards] = useState([]);
-  const [load, setLoad] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getCards = async (): Promise<void> => {
-      setLoad(true);
+      setIsLoading(true);
       setCards(await getSearch(search));
-      setLoad(false);
+      setIsLoading(false);
     };
     getCards();
   }, [search]);
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <>
       <SearchBar setSearch={setSearch} />
-      {load ? <h2>loading...</h2> : <ResultBoard cards={cards} />}
+      {isLoading ? <h2>loading...</h2> : <ResultBoard cards={cards} />}
     </>
   );
 };

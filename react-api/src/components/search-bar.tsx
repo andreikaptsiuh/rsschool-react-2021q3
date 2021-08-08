@@ -10,6 +10,7 @@ interface ISearchBarProps {
 export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarProps) => {
   const [form, setForm] = useState('');
   const [sort, setSort] = useState('publishedAt');
+  const [size, setSize] = useState(5);
 
   const searchHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
     setForm(event.target.value);
@@ -17,13 +18,21 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
 
   const submitHandler: FormEventHandler = (event): void => {
     event.preventDefault();
-    setSearch({ search: form, sort });
+    setSearch({ search: form, sort, size });
 
     setForm('');
   };
 
   const sortHandler: ChangeEventHandler<HTMLSelectElement> = (event): void => {
     setSort(event.target.value as string);
+  };
+
+  const sizeHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
+    let value = +event.target.value;
+    value = value > 15 ? 15 : value;
+    value = value < 3 ? 3 : value;
+
+    setSize(value);
   };
 
   return (
@@ -41,10 +50,11 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
       </form>
 
       <div className="search_settings">
-        <label>
+        <label htmlFor="sort">
           Sort by:
           <select
             className="sort-select"
+            name="sort"
             value={sort}
             onChange={sortHandler}
           >
@@ -52,6 +62,19 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
             <option value="relevancy">Relevancy</option>
             <option value="popular">Popular</option>
           </select>
+        </label>
+
+        <label htmlFor="size">
+          Page size:
+          <input
+            type="number"
+            className="search-size"
+            name="size"
+            min="3"
+            max="15"
+            value={size}
+            onChange={sizeHandler}
+          />
         </label>
       </div>
     </div>
