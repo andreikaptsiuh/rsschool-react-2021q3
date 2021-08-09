@@ -20,6 +20,8 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    historyApiFallback: true,
+    contentBasePublicPath: path.join(__dirname, "dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
