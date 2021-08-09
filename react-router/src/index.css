@@ -11,15 +11,16 @@ body {
 }
 
 #root {
-  width: 90%;
-  margin-top: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+}
 
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
   background-color: rgb(224, 221, 221);
-  border-radius: 5px;
 }
