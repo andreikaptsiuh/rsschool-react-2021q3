@@ -18,4 +18,10 @@ export interface ISearch {
   search: string,
   sort: string,
   size: number,
+  page: number,
+}
+
+export interface APIResponse {
+  articles: ICard[],
+  totalResults: number,
 }

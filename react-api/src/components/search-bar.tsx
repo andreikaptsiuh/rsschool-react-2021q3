@@ -5,12 +5,14 @@ import { ISearch } from '../shared/interfaces';
 
 interface ISearchBarProps {
   setSearch: Dispatch<SetStateAction<ISearch>>;
+  pages: number;
 }
 
-export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarProps) => {
+export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch, pages }: ISearchBarProps) => {
   const [form, setForm] = useState('');
   const [sort, setSort] = useState('publishedAt');
   const [size, setSize] = useState(5);
+  const [page, setPage] = useState(1);
 
   const searchHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
     setForm(event.target.value);
@@ -18,7 +20,9 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
 
   const submitHandler: FormEventHandler = (event): void => {
     event.preventDefault();
-    setSearch({ search: form, sort, size });
+    setSearch({
+      search: form, sort, size, page,
+    });
 
     setForm('');
   };
@@ -33,6 +37,11 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
     value = value < 3 ? 3 : value;
 
     setSize(value);
+  };
+
+  const pageHandler: ChangeEventHandler<HTMLInputElement> = (event): void => {
+    const value = +event.target.value;
+    setPage(value);
   };
 
   return (
@@ -76,6 +85,25 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch }: ISearchBarPr
             onChange={sizeHandler}
           />
         </label>
+
+        <label htmlFor="page">
+          Page:
+          <input
+            type="number"
+            className="search-page"
+            name="page"
+            min="1"
+            value={page}
+            onChange={pageHandler}
+          />
+        </label>
+
+        <div className="search-pages">
+          {' '}
+          All pages:
+          {' '}
+          {pages}
+        </div>
       </div>
     </div>
   );
