@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 import { Header } from './header';
 import { Home } from './pages/home/home';
@@ -35,14 +36,15 @@ const App: React.FC = () => {
   }, [search]);
 
   const cont = {
-    card: {
-      title: '',
-      author: '',
-      description: '',
-      url: '',
-    },
+    title: ' ',
+    author: ' ',
+    description: ' ',
+    url: ' ',
     set: function setType(card: ICard): void {
-      cont.card = card;
+      cont.title = card.title;
+      cont.author = card.author;
+      cont.description = card.description;
+      cont.url = card.url;
     },
   };
 
@@ -61,7 +63,8 @@ const App: React.FC = () => {
           <Route path="/details">
             <Details />
           </Route>
-          <Route component={NotPage} />
+          <Route path="/404" component={NotPage} />
+          <Redirect to="/404" />
         </Switch>
       </Context.Provider>
     </Router>

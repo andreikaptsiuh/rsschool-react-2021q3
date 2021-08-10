@@ -2,14 +2,15 @@ import React from 'react';
 import { ICard } from './interfaces';
 
 const cardContext = {
-  card: {
-    title: '',
-    author: '',
-    description: '',
-    url: '',
-  },
+  title: ' ',
+  author: ' ',
+  description: ' ',
+  url: ' ',
   set: function setCard(card: ICard) {
-    this.card = card;
+    this.title = card.title;
+    this.author = card.author;
+    this.description = card.description;
+    this.url = card.url;
   },
 };
 

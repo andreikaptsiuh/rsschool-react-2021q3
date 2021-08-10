@@ -10,7 +10,7 @@ export const ResultItem: React.FC<IResultItemProps> = ({ card } : IResultItemPro
         <Link
           to="/details"
           className="result_item__title"
-          onClick={() => set(card)}
+          onChange={() => set(card)}
         >
           {card.title}
         </Link>
