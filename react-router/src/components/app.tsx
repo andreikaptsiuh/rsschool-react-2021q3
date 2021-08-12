@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
+  useLocation,
 } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Header } from './header';
 import { Home } from './pages/home/home';
 import { About } from './pages/about';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const getCards = async (): Promise<void> => {
@@ -49,25 +51,30 @@ const App: React.FC = () => {
   };
 
   return (
-    <Router>
-      <Context.Provider value={cards[0]}>
-        <Header />
-
-        <Switch>
-          <Route path="/" exact>
-            <Home setSearch={setSearch} cards={cards} pages={pages} isLoading={isLoading} />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/details">
-            <Details />
-          </Route>
-          <Route path="/404" component={NotPage} />
-          <Redirect to="/404" />
-        </Switch>
-      </Context.Provider>
-    </Router>
+    <Context.Provider value={cards[0]}>
+      <Header />
+      <TransitionGroup>
+        <CSSTransition
+          timeout={500}
+          classNames="fade"
+          key={location.key}
+        >
+          <Switch location={location}>
+            <Route path="/" exact>
+              <Home setSearch={setSearch} cards={cards} pages={pages} isLoading={isLoading} />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/details">
+              <Details />
+            </Route>
+            <Route path="/404" component={NotPage} />
+            <Redirect to="/404" />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+    </Context.Provider>
   );
 };
 
