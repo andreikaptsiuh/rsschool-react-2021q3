@@ -1,14 +1,15 @@
 import React, {
-  ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState,
+  ChangeEventHandler, FormEventHandler, useState,
 } from 'react';
-import { ISearch } from '../../../shared/interfaces';
+import { useDispatch, useSelector } from 'react-redux';
+import { IAppState } from '../../../shared/interfaces';
+import { setLoad } from '../../../shared/store/appReducer';
+import { fetchNews } from '../../../shared/store/asyncActions';
 
-interface ISearchBarProps {
-  setSearch: Dispatch<SetStateAction<ISearch>>;
-  pages: number;
-}
+export const SearchBar: React.FC = () => {
+  const dispatch = useDispatch();
+  const pages = useSelector((state: IAppState) => state.app.cards.totalResults);
 
-export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch, pages }: ISearchBarProps) => {
   const [form, setForm] = useState('');
   const [sort, setSort] = useState('publishedAt');
   const [size, setSize] = useState(5);
@@ -20,9 +21,11 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ setSearch, pages }: ISear
 
   const submitHandler: FormEventHandler = (event): void => {
     event.preventDefault();
-    setSearch({
+
+    dispatch(setLoad(true));
+    dispatch(fetchNews({
       search: form, sort, size, page,
-    });
+    }));
   };
 
   const sortHandler: ChangeEventHandler<HTMLSelectElement> = (event): void => {

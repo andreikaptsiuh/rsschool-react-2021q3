@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { IAppState } from '../../../shared/interfaces';
 import { ResultItem } from './result-item';
-import { IResultBoardProps } from '../../../shared/interfaces';
 
-export const ResultBoard: React.FC<IResultBoardProps> = ({ cards }: IResultBoardProps) => {
+export const ResultBoard: React.FC = () => {
+  const cards = useSelector((state: IAppState) => state.app.cards);
+
   let key = 0;
   const createKey = (): number => key++;
 
-  const result = cards.length > 0 ? cards.map((item) => (
+  const result = cards.articles.length > 0 ? cards.articles.map((item) => (
     <ResultItem card={item} key={createKey()} />
   )) : (<h2>Elements is not found</h2>);
 

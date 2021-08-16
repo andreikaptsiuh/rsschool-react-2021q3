@@ -1,22 +1,9 @@
-import { Dispatch, SetStateAction } from 'react';
-
 export interface ICard {
   id: number;
   title: string;
   author: string;
   description: string;
   url: string;
-}
-
-export interface IHomePageProps {
-  setSearch: Dispatch<SetStateAction<ISearch>>;
-  pages: number;
-  cards: ICard[];
-  isLoading: boolean;
-}
-
-export interface IResultBoardProps {
-  cards: ICard[];
 }
 
 export interface IResultItemProps {
@@ -33,4 +20,27 @@ export interface ISearch {
 export interface APIResponse {
   articles: ICard[],
   totalResults: number,
+}
+
+export interface IAction {
+  type: string,
+  payload: string,
+}
+
+export interface IState {
+  cards: {
+    articles: ICard[],
+    totalResults: number,
+  }
+  isLoad: boolean;
+}
+
+export interface IAppState {
+  app: {
+    cards: {
+      articles: ICard[],
+      totalResults: number,
+    }
+    isLoad: boolean;
+  }
 }

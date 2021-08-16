@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import {
   Switch,
@@ -6,6 +7,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useDispatch } from 'react-redux';
 import { Header } from './header';
 import { Home } from './pages/home/home';
 import { About } from './pages/about';
@@ -19,23 +21,26 @@ const App: React.FC = () => {
   const [search, setSearch] = useState<ISearch>({
     search: '', sort: '', size: 5, page: 1,
   });
+  const dispatch = useDispatch();
   const [cards, setCards] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(0);
   const location = useLocation();
 
-  useEffect(() => {
+  /* useEffect(() => {
     const getCards = async (): Promise<void> => {
-      setIsLoading(true);
       const res = await getSearch(search);
       setCards(res.articles ? res.articles : []);
 
       const allRes = res.totalResults ? Math.round(res.totalResults / search.size) : 0;
       setPages(allRes);
-      setIsLoading(false);
+
+      dispatch({
+        type: 'LOAD',
+        payload: false,
+      });
     };
     getCards();
-  }, [search]);
+  }, [search]); */
 
   const cont = {
     title: ' ',
@@ -61,7 +66,7 @@ const App: React.FC = () => {
         >
           <Switch location={location}>
             <Route path="/" exact>
-              <Home setSearch={setSearch} cards={cards} pages={pages} isLoading={isLoading} />
+              <Home />
             </Route>
             <Route path="/about">
               <About />
