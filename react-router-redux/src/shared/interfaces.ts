@@ -42,5 +42,6 @@ export interface IAppState {
       totalResults: number,
     }
     isLoad: boolean;
+    card: ICard;
   }
 }

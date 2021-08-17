@@ -1,7 +1,10 @@
-import { APIResponse, IAction, IState } from '../interfaces';
+import {
+  APIResponse, IAction, ICard, IState,
+} from '../interfaces';
 
 export const SEARCH = 'SEARCH';
 export const LOAD = 'LOAD';
+export const SET_DETAILS = 'SET_DETAILS';
 
 const defaultState: IState = {
   cards: {
@@ -17,6 +20,8 @@ export const appReducer = (state: IState = defaultState, action: IAction) => {
       return { ...state, cards: action.payload };
     case LOAD:
       return { ...state, isLoad: action.payload };
+    case SET_DETAILS:
+      return { ...state, card: action.payload };
     default:
       return state;
   }
@@ -24,3 +29,4 @@ export const appReducer = (state: IState = defaultState, action: IAction) => {
 
 export const setLoad = (payload: boolean) => ({ type: LOAD, payload });
 export const setSearch = (payload: APIResponse) => ({ type: SEARCH, payload });
+export const setDetails = (payload: ICard) => ({ type: SET_DETAILS, payload });

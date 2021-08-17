@@ -20,7 +20,7 @@ const App: React.FC = () => {
       <Header />
       <TransitionGroup>
         <CSSTransition
-          timeout={500}
+          timeout={600}
           classNames="fade"
           key={location.key}
         >
