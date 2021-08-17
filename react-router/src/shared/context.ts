@@ -1,12 +1,13 @@
 import React from 'react';
 import { ICard } from './interfaces';
 
-const cardContext = {
+export const cardContext = {
   title: ' ',
   author: ' ',
   description: ' ',
   url: ' ',
-  set: function setCard(card: ICard) {
+
+  set(card: ICard): void {
     this.title = card.title;
     this.author = card.author;
     this.description = card.description;

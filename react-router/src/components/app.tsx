@@ -11,9 +11,9 @@ import { Home } from './pages/home/home';
 import { About } from './pages/about';
 import { Details } from './pages/details';
 import { NotPage } from './pages/not-page';
-import { ICard, ISearch } from '../shared/interfaces';
+import { ISearch } from '../shared/interfaces';
 import { getSearch } from '../shared/func';
-import { Context } from '../shared/context';
+import { cardContext, Context } from '../shared/context';
 
 const App: React.FC = () => {
   const [search, setSearch] = useState<ISearch>({
@@ -37,25 +37,12 @@ const App: React.FC = () => {
     getCards();
   }, [search]);
 
-  const cont = {
-    title: ' ',
-    author: ' ',
-    description: ' ',
-    url: ' ',
-    set: function setType(card: ICard): void {
-      cont.title = card.title;
-      cont.author = card.author;
-      cont.description = card.description;
-      cont.url = card.url;
-    },
-  };
-
   return (
-    <Context.Provider value={cards[0]}>
+    <Context.Provider value={cardContext}>
       <Header />
       <TransitionGroup>
         <CSSTransition
-          timeout={500}
+          timeout={600}
           classNames="fade"
           key={location.key}
         >
