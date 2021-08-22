@@ -14,7 +14,7 @@ export const ResultBoard: React.FC = () => {
   )) : (<h2>Elements is not found</h2>);
 
   return (
-    <div className="result_board">
+    <div className="result_board" data-testid="result_board">
       {result}
     </div>
   );

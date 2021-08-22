@@ -33,6 +33,7 @@ export interface IState {
     totalResults: number,
   }
   isLoad: boolean;
+  card: ICard;
 }
 
 export interface IAppState {
