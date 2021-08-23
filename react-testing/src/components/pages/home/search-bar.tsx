@@ -54,9 +54,10 @@ export const SearchBar: React.FC = () => {
           type="text"
           value={form}
           onChange={searchHandler}
+          data-testid="search-bar"
         />
 
-        <input className="form_submit" type="submit" value="Search" />
+        <input className="form_submit" type="submit" value="Search" data-testid="form_submit" />
       </form>
 
       <div className="search_settings">
@@ -67,6 +68,7 @@ export const SearchBar: React.FC = () => {
             name="sort"
             value={sort}
             onChange={sortHandler}
+            data-testid="sort-select"
           >
             <option value="publishedAt">PublishedAt</option>
             <option value="relevancy">Relevancy</option>

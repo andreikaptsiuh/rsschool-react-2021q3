@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">64.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>11/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">64.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>11/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -74,12 +74,7 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -88,17 +83,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Dispatch } from 'react';
@@ -109,18 +99,13 @@ import { setLoad, setSearch } from './appReducer';
 const baseUrl = 'https://newsapi.org/v2/everything?';
 const apiKey = 'apiKey=d13c407419f843918a4c7515972496ef';
 &nbsp;
-export const fetchNews = <span class="fstat-no" title="function not covered" >(search: ISearch) =&gt; async (dispatch: Dispatch&lt;Action&gt;) =&gt; {</span>
-  const url = `
-    ${baseUrl}q=${search.search}&amp;sortBy=${search.sort}&amp;pageSize=${search.size}&amp;page=${search.page}&amp;${apiKey}
-  `;
-&nbsp;
-  const response = await fetch(url, {
-    headers: { Authorization: `X-Api-Key ${apiKey}` },
-  });
-  const data: APIResponse = await response.json();
-&nbsp;
-  dispatch(setSearch(data));
-&nbsp;
+export const fetchNews = (search: ISearch) =&gt; <span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >async (d</span></span>ispatch: Dispatch&lt;Action&gt;) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const url = `</span>
+<span class="cstat-no" title="statement not covered" >    ${baseUrl}q=${search.search}&amp;sortBy=${search.sort}&amp;pageSize=${search.size}&amp;page=${search.page}&amp;${apiKey}</span>
+<span class="cstat-no" title="statement not covered" >  `;</span>
+<span class="cstat-no" title="statement not covered" >  const response = await fetch(url, { headers: { Authorization: `X-Api-Key ${apiKey}` } });</span>
+<span class="cstat-no" title="statement not covered" >  const data: APIResponse = await response.json();</span>
+<span class="cstat-no" title="statement not covered" >  dispatch(setSearch(data));</span>
   dispatch(setLoad(false));
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -130,7 +115,7 @@ export const fetchNews = <span class="fstat-no" title="function not covered" >(s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 23 2021 17:17:36 GMT+0300 (Москва, стандартное время)
+                at Mon Aug 23 2021 21:40:15 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

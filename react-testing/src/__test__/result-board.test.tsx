@@ -1,18 +1,14 @@
-/**
- * @jest-environment jsdom
- */
+/* eslint-disable no-undef */
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ResultBoard } from '../components/pages/home/result-board';
 import { store } from '../shared/store/store';
 
-/* eslint-disable no-undef */
 describe('result-board', () => {
-  it('render', () => {
+  test('render', () => {
     const el = render(
       <Router>
         <Provider store={store}>

@@ -10,13 +10,8 @@ export const fetchNews = (search: ISearch) => async (dispatch: Dispatch<Action>)
   const url = `
     ${baseUrl}q=${search.search}&sortBy=${search.sort}&pageSize=${search.size}&page=${search.page}&${apiKey}
   `;
-
-  const response = await fetch(url, {
-    headers: { Authorization: `X-Api-Key ${apiKey}` },
-  });
+  const response = await fetch(url, { headers: { Authorization: `X-Api-Key ${apiKey}` } });
   const data: APIResponse = await response.json();
-
   dispatch(setSearch(data));
-
   dispatch(setLoad(false));
 };
