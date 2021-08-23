@@ -11,7 +11,7 @@ export const ResultBoard: React.FC = () => {
 
   const result = cards.articles.length > 0 ? cards.articles.map((item) => (
     <ResultItem card={item} key={createKey()} />
-  )) : (<h2>Elements is not found</h2>);
+  )) : (<h2 data-testid="result_board__title">Elements is not found</h2>);
 
   return (
     <div className="result_board" data-testid="result_board">

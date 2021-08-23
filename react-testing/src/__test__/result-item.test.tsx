@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from 'react-dom';
+import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { store } from '../shared/store/store';
@@ -17,7 +17,6 @@ it('Renders without crashing', () => {
     description: 'description',
     url: 'url',
   };
-  const div = document.createElement('div');
 
   const el = render(
     <Router>
@@ -25,8 +24,29 @@ it('Renders without crashing', () => {
         <ResultItem card={card} />
       </Provider>
     </Router>,
-    div,
   );
 
   expect(el).not.toBeNull();
+});
+
+it('Add cards to details', () => {
+  const card = {
+    id: 8,
+    title: 'title',
+    author: 'author',
+    description: 'description',
+    url: 'url',
+  };
+
+  const el = render(
+    <Router>
+      <Provider store={store}>
+        <ResultItem card={card} />
+      </Provider>
+    </Router>,
+  );
+
+  const link = el.getByTestId('result_item__title');
+
+  expect(fireEvent.click(link)).toBe(false);
 });

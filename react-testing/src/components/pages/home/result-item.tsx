@@ -17,6 +17,7 @@ export const ResultItem: React.FC<IResultItemProps> = ({ card } : IResultItemPro
         to="/details"
         className="result_item__title"
         onClick={setDetailsHandler}
+        data-testid="result_item__title"
       >
         {card.title}
       </Link>
