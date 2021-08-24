@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629744015133" clover="3.2.0">
-  <project timestamp="1629744015134" name="All files">
+<coverage generated="1629800720799" clover="3.2.0">
+  <project timestamp="1629800720799" name="All files">
     <metrics statements="300" coveredstatements="285" conditionals="37" coveredconditionals="30" methods="21" coveredmethods="17" elements="358" coveredelements="332" complexity="0" loc="300" ncloc="300" packages="3" files="10" classes="10"/>
     <package name="components.pages">
       <metrics statements="52" coveredstatements="52" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
@@ -289,17 +289,17 @@
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="25" count="14" type="stmt"/>
-        <line num="26" count="14" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="14" type="stmt"/>
-        <line num="28" count="14" type="cond" truecount="1" falsecount="0"/>
-        <line num="29" count="14" type="stmt"/>
-        <line num="30" count="14" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="14" type="stmt"/>
-        <line num="32" count="14" type="cond" truecount="1" falsecount="0"/>
-        <line num="33" count="14" type="stmt"/>
-        <line num="34" count="14" type="stmt"/>
-        <line num="35" count="14" type="stmt"/>
+        <line num="25" count="17" type="stmt"/>
+        <line num="26" count="17" type="cond" truecount="0" falsecount="1"/>
+        <line num="27" count="17" type="stmt"/>
+        <line num="28" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="17" type="stmt"/>
+        <line num="30" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="17" type="stmt"/>
+        <line num="32" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="17" type="stmt"/>
+        <line num="34" count="17" type="stmt"/>
+        <line num="35" count="17" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="38" count="1" type="stmt"/>

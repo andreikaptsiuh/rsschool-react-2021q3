@@ -10,7 +10,7 @@ export const ResultBoard: React.FC = () => {
   const createKey = (): number => key++;
 
   const result = cards.articles.length > 0 ? cards.articles.map((item) => (
-    <ResultItem card={item} key={createKey()} data-testid="result_board" />
+    <ResultItem card={item} key={createKey()} />
   )) : (<h2 data-testid="result_board__title">Elements is not found</h2>);
 
   return (

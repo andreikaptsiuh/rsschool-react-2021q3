@@ -12,7 +12,7 @@ export const ResultItem: React.FC<IResultItemProps> = ({ card } : IResultItemPro
   };
 
   return (
-    <div className="result_item">
+    <div className="result_item" data-testid="result_board__item">
       <Link
         to="/details"
         className="result_item__title"

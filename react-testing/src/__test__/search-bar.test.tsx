@@ -52,11 +52,19 @@ test('Search', () => {
   fireEvent.change(searchBarInput, { target: { value: 'apple' } });
   expect(searchBarInput.value).toBe('apple');
 
+  const resBoard = el.getByTestId('result_board');
+  expect(resBoard.childElementCount).toBe(1);
+
   const formSubmitElement = el.getByTestId('form_submit');
   fireEvent.submit(formSubmitElement);
+
   setTimeout(() => {
     const resultBoardElement = el.getAllByTestId('result_board__item');
-    expect(resultBoardElement.length).toBe(6);
+    expect(Array.isArray(resultBoardElement)).toBe(true);
+
+    expect(resultBoardElement.length).toBe(5);
+    expect(resultBoardElement).not.toBeNull();
+    expect(resBoard.childElementCount).toBe(5);
 
     const link = el.getAllByTestId('result_item__title');
     fireEvent.click(link[0]);
