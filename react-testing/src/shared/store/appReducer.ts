@@ -8,7 +8,15 @@ export const SET_DETAILS = 'SET_DETAILS';
 
 const defaultState: IState = {
   cards: {
-    articles: [],
+    articles: [
+      {
+        id: 1,
+        title: 'You search items!',
+        author: '',
+        description: '',
+        url: '',
+      },
+    ],
     totalResults: 0,
   },
   isLoad: false,
