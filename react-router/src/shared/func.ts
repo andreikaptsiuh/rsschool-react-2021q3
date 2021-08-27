@@ -14,3 +14,15 @@ export const getSearch = async (search: ISearch): Promise<APIResponse> => {
   const data = await response.json();
   return data;
 };
+
+export const getNewsByTitle = async (title: string): Promise<APIResponse> => {
+  const url = `
+    ${baseUrl}q=${title}&${apiKey}
+  `;
+
+  const response = await fetch(url, {
+    headers: { Authorization: `X-Api-Key ${apiKey}` },
+  });
+  const data = await response.json();
+  return data;
+};

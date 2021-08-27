@@ -6,9 +6,6 @@ export interface ICard {
   author: string;
   description: string;
   url: string;
-  source: {
-    name: string;
-  },
 }
 
 export interface IHomePageProps {
@@ -36,4 +33,8 @@ export interface ISearch {
 export interface APIResponse {
   articles: ICard[],
   totalResults: number,
+}
+
+export interface IParams {
+  title: string,
 }

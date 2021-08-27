@@ -53,7 +53,7 @@ const App: React.FC = () => {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/details/:id">
+            <Route exact path="/details/:title">
               <Details />
             </Route>
             <Route path="/404" component={NotPage} />

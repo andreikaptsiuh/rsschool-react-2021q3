@@ -13,7 +13,7 @@ export const ResultItem: React.FC<IResultItemProps> = ({ card } : IResultItemPro
   return (
     <div className="result_item">
       <Link
-        to={`/details/${card.source.name}`}
+        to={`/details/${card.title}`}
         className="result_item__title"
         onClick={contextHandler}
       >
