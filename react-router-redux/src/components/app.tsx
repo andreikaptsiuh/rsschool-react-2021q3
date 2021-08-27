@@ -25,13 +25,13 @@ const App: React.FC = () => {
           key={location.key}
         >
           <Switch location={location}>
-            <Route path="/" exact>
+            <Route exact path="/">
               <Home />
             </Route>
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/details">
+            <Route exact path="/details/:id">
               <Details />
             </Route>
             <Route path="/404" component={NotPage} />

@@ -4,6 +4,9 @@ export interface ICard {
   author: string;
   description: string;
   url: string;
+  source: {
+    name: string;
+  },
 }
 
 export interface IResultItemProps {

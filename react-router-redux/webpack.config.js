@@ -16,11 +16,14 @@ const config = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   devServer: {
     open: true,
     host: "localhost",
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: "build/index.html",
+    },
     contentBasePublicPath: path.join(__dirname, "dist"),
   },
   plugins: [
