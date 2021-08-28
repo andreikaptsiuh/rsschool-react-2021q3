@@ -12,6 +12,13 @@ const defaultState: IState = {
     totalResults: 0,
   },
   isLoad: false,
+  card: {
+    id: 2,
+    title: 'title',
+    author: 'author',
+    description: 'description',
+    url: 'url',
+  },
 };
 
 export const appReducer = (state: IState = defaultState, action: IAction) => {

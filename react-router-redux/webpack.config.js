@@ -15,20 +15,18 @@ const stylesHandler = isProduction
 const config = {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: isProduction ? "" : "/",
   },
   devServer: {
     open: true,
     host: "localhost",
-    historyApiFallback: {
-      index: "build/index.html",
-    },
-    contentBasePublicPath: path.join(__dirname, "dist"),
+    historyApiFallback: true,
+    contentBasePublicPath: path.join(__dirname, "./dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "./index.html",
     }),
     new ESLintPlugin({
       extensions: ["tsx", "ts", "js"],

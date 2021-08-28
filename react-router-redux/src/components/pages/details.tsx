@@ -1,8 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { IAppState } from '../../shared/interfaces';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { IAppState, IParams } from '../../shared/interfaces';
+import { fetchNewsByTitle } from '../../shared/store/asyncActions';
 
 export const Details: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const params: IParams = useParams();
+  dispatch(fetchNewsByTitle(params.title));
+
   const card = useSelector((state: IAppState) => state.app.card);
 
   return (

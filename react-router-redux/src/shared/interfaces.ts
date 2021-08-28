@@ -4,9 +4,6 @@ export interface ICard {
   author: string;
   description: string;
   url: string;
-  source: {
-    name: string;
-  },
 }
 
 export interface IResultItemProps {
@@ -36,6 +33,7 @@ export interface IState {
     totalResults: number,
   }
   isLoad: boolean;
+  card: ICard;
 }
 
 export interface IAppState {
@@ -47,4 +45,8 @@ export interface IAppState {
     isLoad: boolean;
     card: ICard;
   }
+}
+
+export interface IParams {
+  title: string,
 }
