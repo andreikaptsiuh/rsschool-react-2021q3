@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
@@ -8,5 +9,5 @@
     "allowJs": true,
     "moduleResolution": "node"
   },
-  "files": ["src/index.tsx"]
+  "files": ["src/client.tsx"]
 }
