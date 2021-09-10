@@ -5,6 +5,7 @@ import {
 export const SEARCH = 'SEARCH';
 export const LOAD = 'LOAD';
 export const SET_DETAILS = 'SET_DETAILS';
+export const SET_DATA = 'SET_DATA';
 
 const defaultState: IState = {
   cards: {
@@ -29,6 +30,8 @@ export const appReducer = (state: IState = defaultState, action: IAction) => {
       return { ...state, isLoad: action.payload };
     case SET_DETAILS:
       return { ...state, card: action.payload };
+    case SET_DATA:
+      return { ...state, data: action.payload };
     default:
       return state;
   }
@@ -37,3 +40,4 @@ export const appReducer = (state: IState = defaultState, action: IAction) => {
 export const setLoad = (payload: boolean) => ({ type: LOAD, payload });
 export const setSearch = (payload: APIResponse) => ({ type: SEARCH, payload });
 export const setDetails = (payload: ICard) => ({ type: SET_DETAILS, payload });
+export const setData = (payload: any) => ({ type: SET_DATA, payload });

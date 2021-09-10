@@ -7,10 +7,7 @@ import {
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Header } from './header';
-import { Home } from './pages/home/home';
-import { About } from './pages/about';
-import { Details } from './pages/details';
-import { NotPage } from './pages/not-page';
+import { ROUTES } from '../shared/routes';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -25,16 +22,7 @@ const App: React.FC = () => {
           key={location.key}
         >
           <Switch location={location}>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route exact path="/details/:title">
-              <Details />
-            </Route>
-            <Route path="/404" component={NotPage} />
+            { ROUTES.map((route) => <Route component={route.component} path={route.path} key={route.key} />) }
             <Redirect to="/404" />
           </Switch>
         </CSSTransition>

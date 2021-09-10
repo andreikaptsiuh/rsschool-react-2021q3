@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface ICard {
   id: number;
   title: string;
@@ -49,4 +51,10 @@ export interface IAppState {
 
 export interface IParams {
   title: string,
+}
+
+export interface IRoutes {
+  key: string;
+  path: string;
+  component: React.ComponentClass | React.FunctionComponent;
 }

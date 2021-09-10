@@ -6,7 +6,7 @@ interface TemplateParams {
 }
 
 export function renderTemplate({
-  cssPath, jsPath, content = '',
+  cssPath, jsPath, content = '', data = '',
 }: TemplateParams) {
   return `<!DOCTYPE html>
     <html lang="en">
@@ -22,7 +22,7 @@ export function renderTemplate({
               You need to enable JavaScript to run this app.
           </noscript>
           <div id="root">${content}</div>
-        
+          <script type="application/json" id="data">${data.replace(/</g, '&lt;')}</script>
           <script src="/${jsPath}"></script>
         </body>
     </html>`;
