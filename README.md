@@ -13,3 +13,5 @@ yarn build
 ```
 
 to bundle your application
+
+# rsschool-react-2021q3
