@@ -1,4 +1,6 @@
-export const cards = [
+import { CardInterface } from './interfaces';
+
+export const cards: CardInterface[] = [
   {
     title: 'Blouse',
     description: 'Red blouse',

@@ -28,7 +28,6 @@ const config = {
     new ESLintPlugin({
       extensions: ["tsx", "ts", "js"],
       fix: false,
-      failOnError: true,
     }),
     new CopyPlugin({
       patterns: [{ from: "public" }],

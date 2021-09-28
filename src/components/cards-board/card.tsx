@@ -1,12 +1,8 @@
 import React from 'react';
+import { CardInterface } from '../../shared/interfaces';
 
 type CardProps = {
-  card: {
-    title: string,
-    description: string,
-    src: string,
-    price: number,
-  }
+  card: CardInterface
 }
 
 export const Card: React.FC<CardProps> = (props: CardProps) => (
