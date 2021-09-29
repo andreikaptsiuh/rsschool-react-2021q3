@@ -61,7 +61,7 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
       name: '',
       surname: '',
       birthday: '',
-      country: '',
+      country: 'Belarus',
       sex: false,
       notifications: false,
     });
@@ -123,7 +123,7 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
           value={form.country}
           onChange={formHandlerSelect}
         >
-          <option disabled>Select your country</option>
+          <option>Select your country</option>
           <option value="Belarus">Belarus</option>
           <option value="Ukraine">Ukraine</option>
           <option value="Germany">Germany</option>
