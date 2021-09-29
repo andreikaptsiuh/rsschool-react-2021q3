@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Redirect,
   useLocation,
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -28,14 +27,13 @@ const App: React.FC = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/about">
+            <Route exact path="/about">
               <About />
             </Route>
             <Route exact path="/details/:title">
               <Details />
             </Route>
-            <Route path="/404" component={NotPage} />
-            <Redirect to="/404" />
+            <Route component={NotPage} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
