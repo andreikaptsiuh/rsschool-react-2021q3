@@ -50,7 +50,7 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Home setSearch={setSearch} cards={cards} pages={pages} isLoading={isLoading} />
             </Route>
-            <Route path="/about">
+            <Route path="/about" exact>
               <About />
             </Route>
             <Route exact path="/details/:title">
