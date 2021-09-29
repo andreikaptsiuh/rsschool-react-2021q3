@@ -61,7 +61,7 @@ export const Form: React.FC<IFormProps> = ({ setUsers }: IFormProps) => {
       name: '',
       surname: '',
       birthday: '',
-      country: 'Belarus',
+      country: '',
       sex: false,
       notifications: false,
     });
