@@ -12,17 +12,20 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(0);
 
-  useEffect(() => {
-    const getCards = async (): Promise<void> => {
-      setIsLoading(true);
-      const res = await getSearch(search);
-      setCards(res.articles ? res.articles : []);
+  const getCards = async (): Promise<void> => {
+    setIsLoading(true);
+    const res = await getSearch(search);
+    setCards(res.articles ? res.articles : []);
 
-      const allRes = res.totalResults ? Math.round(res.totalResults / search.size) : 0;
-      setPages(allRes);
-      setIsLoading(false);
-    };
-    getCards();
+    const allRes = res.totalResults ? Math.round(res.totalResults / search.size) : 0;
+    setPages(allRes);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    if (search.search !== '') {
+      getCards();
+    }
   }, [search]);
 
   return (
