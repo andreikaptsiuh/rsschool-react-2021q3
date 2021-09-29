@@ -15,11 +15,12 @@ export const Details: React.FC = () => {
     url: '',
   });
 
+  async function getCard() {
+    const res = await getNewsByTitle(params.title);
+    setCard(res.articles[0]);
+  }
+
   useEffect(() => {
-    async function getCard() {
-      const res = await getNewsByTitle(params.title);
-      setCard(res.articles[0]);
-    }
     getCard();
   }, [location.pathname]);
 
